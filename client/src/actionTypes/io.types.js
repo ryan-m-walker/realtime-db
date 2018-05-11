@@ -1,0 +1,2 @@
+export const CONNECT_TO_IO = 'CONNECT_TO_IO';
+export const DISCONNECT_FROM_IO = 'DISCONNECT_FROM_IO';
