@@ -14,13 +14,11 @@ export const addTodo = (todo) => (dispatch) => {
 
 export const deleteTodo = (todoId) => {
   console.log(`Deleting todo with id ${todoId}`);
-  socket.emit('delete_todo', todoId, (res) => {
-    
-  });
+  socket.emit('delete_todo', todoId, (res) => {});
 };
 
 export const fetchTodos = () => (dispatch) => {
-  fetch('/todos')
+  fetch('/api/todos')
     .then((data) => data.json())
     .then((todos) => {
       console.log(todos);
