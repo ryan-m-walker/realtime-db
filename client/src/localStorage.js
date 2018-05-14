@@ -4,7 +4,7 @@ export const loadState = () => {
     if (serializedState === null) {
       return undefined;
     }
-    return serializedState;
+    return JSON.parse(serializedState);
   } catch (error) {
     console.log(error);
     return undefined;

@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import ioReducer from './io.reducer';
+import dbReducer from './db.reducer';
 import todosReducer from './todos.reducer';
+import userReducer from './user.reducer';
 
 export default combineReducers({
-  io: ioReducer,
-  todos: todosReducer
+  db: dbReducer,
+  todos: todosReducer,
+  user: userReducer
 });

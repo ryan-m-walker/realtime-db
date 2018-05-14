@@ -1,0 +1,8 @@
+export const CONNECT_TO_DB = 'CONNECT_TO_DB';
+export const DISCONNECT_FROM_DB = 'DISCONNECT_FROM_DB';
+
+export const STAGE_DB_ACTION = 'STAGE_DB_ACTION';
+export const UNSTAGE_DB_ACTION = 'UNSTAGE_DB_ACTION';
+
+export const START_SYNCING = 'START_SYNCING';
+export const END_SYNCING = 'END_SYNCING';

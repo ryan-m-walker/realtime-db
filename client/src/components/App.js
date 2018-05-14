@@ -1,55 +1,20 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import { addTodo } from '../actions/todos.actions';
+import Login from './Login';
+import Dashboard from './Dashboard';
 
 class App extends Component {
-  state = {
-    todo: ''
-  };
-
-  onSubmit = (e) => {
-    e.preventDefault();
-    this.props.addTodo({
-      text: this.state.todo
-    });
-  };
-
-  onChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
   render() {
     return (
-      <div>
-        <h1>Hello Socket.io</h1>
-        {this.props.connected && <p>Connected</p>}
-        <hr />
-        <form onSubmit={this.onSubmit}>
-          <input
-            type="text"
-            name="todo"
-            id="todo"
-            value={this.state.todo}
-            onChange={this.onChange}
-          />
-          <input type="submit" value="Add" />
-        </form>
+      <Router>
         <div>
-          {this.props.todos.map((todo) => <p key={todo._id}>{todo.text}</p>)}
+          <Route exact path="/" component={Login} />
+          <Route path="/dashboard" component={Dashboard} />
         </div>
-      </div>
-    );
+      </Router>
+    )
   }
 }
 
-const mapState = (state) => ({
-  connected: state.io.connected,
-  todos: state.todos
-});
-
-const mapDispatch = (dispatch) => ({
-  addTodo: (todo) => dispatch(addTodo(todo))
-});
-
-export default connect(mapState, mapDispatch)(App);
+export default App;

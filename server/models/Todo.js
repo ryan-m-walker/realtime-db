@@ -1,7 +1,15 @@
 const mongoose = require('mongoose');
 
+
 const todoSchema = mongoose.Schema({
-  text: String
+  text: {
+    type: String,
+    required: true
+  },
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'users'
+  }
 });
 
-module.exports = mongoose.model('Todo', todoSchema);
+module.exports = mongoose.model('todo', todoSchema);
